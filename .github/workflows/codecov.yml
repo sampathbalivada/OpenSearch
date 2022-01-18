@@ -14,7 +14,7 @@ jobs:
 
       - name: Run checks and generate test report
         run: |
-          ./gradlew check -Dtests.coverage=true
+          ./gradlew check -Dtests.coverage=true --parallel
       
       - name: Upload Coverage Report
         uses: codecov/codecov-action@v2
