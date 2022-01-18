@@ -12,9 +12,13 @@ jobs:
           java-version: 11
           distribution: adopt
 
+      - name: Build OpenSearch for all platforms
+        run: |
+          ./gradlew assemble --parallel
+
       - name: Run checks and generate test report
         run: |
-          ./gradlew codeCoverageReport --parallel || true
+          ./gradlew codeCoverageReportForUnitTest --parallel
       
       - name: Upload Coverage Report
         uses: codecov/codecov-action@v2
