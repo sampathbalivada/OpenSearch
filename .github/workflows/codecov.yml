@@ -1,5 +1,5 @@
 name: Code Coverage Report Uploader
-on: [pull_request]
+on: [pull_request, push]
 
 jobs:
   codecoverage:
@@ -14,7 +14,7 @@ jobs:
 
       - name: Run checks and generate test report
         run: |
-          ./gradlew check -Dtests.coverage=true --parallel || true
+          ./gradlew codeCoverageReport --parallel || true
       
       - name: Upload Coverage Report
         uses: codecov/codecov-action@v2
