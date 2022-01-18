@@ -14,11 +14,11 @@ jobs:
 
       - name: Build OpenSearch for all platforms
         run: |
-          ./gradlew assemble --parallel
+          ./gradlew assemble --parallel --stacktrace
 
       - name: Run checks and generate test report
         run: |
-          ./gradlew codeCoverageReportForUnitTest --parallel
+          ./gradlew codeCoverageReportForUnitTest --parallel --stacktrace
 
       - name: Upload Coverage Report
         uses: codecov/codecov-action@v2
